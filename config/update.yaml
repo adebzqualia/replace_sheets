@@ -1,0 +1,51 @@
+# Paths are relative to this configuration file's directory.
+version: 1
+final_workbook: ../data/Consolidated_with_PPT.xlsx
+output_workbook: ../output/Consolidated_with_PPT_updated.xlsx
+overwrite_output: false
+check_text_layout: true
+sheet_password: "a"
+
+# Original consolidation names and prefixes, with explicit Italy/France aliases.
+# Use one name per destination prefix in updates; aliases cannot both be updated.
+country_prefixes:
+  PFF: PFF
+  Belgium: Belgium
+  Netherland: Netherland
+  Findomestic: Italy
+  "Spain (Ctlm Espana + JLR Spain + XFera)": Spain
+  Portugal: Portugal
+  Germany: Germany
+  UK: UK
+  Poland: Poland
+  RCS: RCS
+  "Crédits Modernes": CM
+  Germany-Secured_CORE: GER-SEC
+  Italy: Italy
+  France: PFF
+
+# Exact country-workbook source name -> consolidated worksheet suffix.
+sheet_mapping:
+  ID Card: ID Card
+  OBS KPI: OBS KPI
+  FTE: FTE
+  CVC: CVC
+  GRANTING 2027-2030: GRANTING
+  CUSTOMER SERVICES 2027-2030: CS
+  CORE 2027-2030: CORE
+  NPL SALES: NPL SALES
+  KPI: KPI
+  NPL SALES 2: NPL SALES2
+  CREDIT BUREAU: CREDIT BUREAU
+  MBS (OPEX): MBS (OPEX)
+  PROCUREMENT: PROCUREMENT
+
+# Examples: replace paths and selections with the corrected submissions.
+# Omit sheets for an update to select all 13 entries above.
+updates:
+  - country: Germany
+    file: ../data/updates/POPS2027-Germany.xlsx
+    sheets: [ID Card, FTE]
+  - country: Belgium
+    file: ../data/updates/POPS2027-Belgium.xlsx
+    sheets: [ID Card, FTE]
